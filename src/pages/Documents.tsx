@@ -199,42 +199,6 @@ export const Documents = () => {
                 <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
                   {cert.title}
                 </Typography>
-                <Typography color="text.secondary">
-                  {cert.organization}
-                </Typography>
-                <Typography variant="body2" sx={{ mt: 1 }}>
-                  {cert.year}
-                </Typography>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-
-      {/* Achievements */}
-      <Box>
-        <Typography variant="h4" gutterBottom color="primary" textAlign={isRTL ? 'right' : 'left'}>
-          {t('documents.achievements.title')}
-        </Typography>
-        <Grid container spacing={4}>
-          {achievements.map((achievement: any, index: number) => (
-            <Grid item xs={12} md={4} key={index}>
-              <Paper
-                elevation={3}
-                sx={{
-                  p: 4,
-                  height: '100%'
-                }}
-              >
-                <Typography variant="h6" gutterBottom textAlign={isRTL ? 'right' : 'left'}>
-                  {achievement.title}
-                </Typography>
-                <Typography paragraph textAlign={isRTL ? 'right' : 'left'}>
-                  {achievement.description}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" textAlign={isRTL ? 'right' : 'left'}>
-                  {achievement.year}
-                </Typography>
               </Paper>
             </Grid>
           ))}
