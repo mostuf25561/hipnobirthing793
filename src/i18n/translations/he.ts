@@ -4,7 +4,7 @@ export const heTranslations = {
     about: 'אודותי',
     courses: 'קורסים',
     pricing: 'מחירון',
-    documents: 'המסמכים שלי',
+    documents: 'הסמכות',
     contact: 'צור קשר'
   },
   home: {
