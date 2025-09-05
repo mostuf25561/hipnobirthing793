@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Box, Button, Grid, Paper } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Heart, Baby, Leaf, Moon } from 'lucide-react';
+import { Heart, Baby, Moon, Users, Sparkles } from 'lucide-react';
 import { DebugTooltip } from '../components/Debug/DebugTooltip';
 import { HomeDesignNavigation } from '../components/Debug/HomeDesignNavigation';
 
@@ -176,7 +176,7 @@ export const Home = () => {
             
             <DebugTooltip jsonPath="animation_text.json > services.offerings">
               <Typography variant="h5" color="text.primary" sx={{ fontWeight: 500 }}>
-                הכנה ללידה • הכנה להנקה • שפת דנסטן • עיסוי התינוק
+                הכנה ללידה בשיטת היפנובירת'ינג • הדרכת הנקה • הדרכת פרידה מהנקה • יעוץ שפת התינוקות דנסטן • ייעוץ שינה בגישת דנסטן • עיסוי תינוקות
               </Typography>
             </DebugTooltip>
           </Box>
@@ -266,15 +266,108 @@ export const Home = () => {
                 }
               }}
             >
-              <Leaf size={48} color="#D4A5A5" />
-              <DebugTooltip jsonPath="home.features.holistic.title (i18n)">
+              <Sparkles size={48} color="#D4A5A5" />
+              <DebugTooltip jsonPath="home.features.weaning.title (i18n)">
                 <Typography variant="h5" sx={{ mt: 2, mb: 1, color: 'primary.main' }}>
-                  {t('home.features.holistic.title')}
+                  {t('home.features.weaning.title')}
                 </Typography>
               </DebugTooltip>
-              <DebugTooltip jsonPath="home.features.holistic.description (i18n)">
+              <DebugTooltip jsonPath="home.features.weaning.description (i18n)">
                 <Typography>
-                  {t('home.features.holistic.description')}
+                  {t('home.features.weaning.description')}
+                </Typography>
+              </DebugTooltip>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Paper
+              elevation={3}
+              sx={{
+                p: 4,
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                borderRadius: '20px',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-10px)',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                }
+              }}
+            >
+              <Baby size={48} color="#D4A5A5" />
+              <DebugTooltip jsonPath="home.features.dunstan.title (i18n)">
+                <Typography variant="h5" sx={{ mt: 2, mb: 1, color: 'primary.main' }}>
+                  {t('home.features.dunstan.title')}
+                </Typography>
+              </DebugTooltip>
+              <DebugTooltip jsonPath="home.features.dunstan.description (i18n)">
+                <Typography>
+                  {t('home.features.dunstan.description')}
+                </Typography>
+              </DebugTooltip>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Paper
+              elevation={3}
+              sx={{
+                p: 4,
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                borderRadius: '20px',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-10px)',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                }
+              }}
+            >
+              <Moon size={48} color="#D4A5A5" />
+              <DebugTooltip jsonPath="home.features.sleep.title (i18n)">
+                <Typography variant="h5" sx={{ mt: 2, mb: 1, color: 'primary.main' }}>
+                  {t('home.features.sleep.title')}
+                </Typography>
+              </DebugTooltip>
+              <DebugTooltip jsonPath="home.features.sleep.description (i18n)">
+                <Typography>
+                  {t('home.features.sleep.description')}
+                </Typography>
+              </DebugTooltip>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Paper
+              elevation={3}
+              sx={{
+                p: 4,
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                borderRadius: '20px',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-10px)',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                }
+              }}
+            >
+              <Users size={48} color="#D4A5A5" />
+              <DebugTooltip jsonPath="home.features.massage.title (i18n)">
+                <Typography variant="h5" sx={{ mt: 2, mb: 1, color: 'primary.main' }}>
+                  {t('home.features.massage.title')}
+                </Typography>
+              </DebugTooltip>
+              <DebugTooltip jsonPath="home.features.massage.description (i18n)">
+                <Typography>
+                  {t('home.features.massage.description')}
                 </Typography>
               </DebugTooltip>
             </Paper>
