@@ -70,6 +70,12 @@ export const About = () => {
                 כשהבנתי כמה עוצמה יש בדרך הזו – הפנימית, הנשית, המודעת – הבנתי שזו השליחות שלי: להעביר את זה הלאה. שכל אישה תדע – שגם היא יכולה ללדת אחרת.
               </Typography>
             </DebugTooltip>
+
+                        <DebugTooltip jsonPath="about_self.json > text (paragraph 5)">
+              <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.7, fontSize: '1.05rem', fontWeight: 400 }}>
+            אז יצאתי למסע למידה מעמיק – הדרכת לידה, הדרכת הנקה, שפת דנסטן ועיסוי התינוק, היפנובירת'ינג, תטא הילינג – כל מה שיכול לעזור לי בבית, אבל בעיקר – לעזור לנשים אחרות.
+              </Typography>
+            </DebugTooltip>
           </Box>
         </Grid>
       </Grid>
@@ -78,7 +84,6 @@ export const About = () => {
       <Box sx={{ mt: 8, p: 4, backgroundColor: 'rgba(212, 165, 165, 0.04)', borderRadius: '16px' }}>
         <DebugTooltip jsonPath="about_self.json > text (paragraph 7)">
           <Typography variant="h6" color="text.primary" sx={{ mb: 3, textAlign: 'center', lineHeight: 1.6, fontWeight: 500, fontSize: '1.1rem' }}>
-            אז יצאתי למסע למידה מעמיק – הדרכת לידה, הדרכת הנקה, שפת דנסטן ועיסוי התינוק, היפנובירת'ינג, תטא הילינג – כל מה שיכול לעזור לי בבית, אבל בעיקר – לעזור לנשים אחרות.
           </Typography>
         </DebugTooltip>
       </Box>
