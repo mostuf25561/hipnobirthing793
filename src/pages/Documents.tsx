@@ -273,23 +273,6 @@ export const Documents = () => {
                 <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
                   {cert.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                  {cert.organization}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                  {cert.year}
-                </Typography>
-                {getCourseMapping(cert.title) && (
-                  <Button
-                    component={Link}
-                    to={`/pricing#${getCourseMapping(cert.title)}`}
-                    variant="outlined"
-                    size="small"
-                    startIcon={<ExternalLink size={16} />}
-                  >
-                    צפה במחיר
-                  </Button>
-                )}
               </Paper>
             </Grid>
           ))}

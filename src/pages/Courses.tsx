@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { Heart, Baby, Moon, Users, Sparkles, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Courses = () => {
   const { t, i18n } = useTranslation();
@@ -32,7 +33,8 @@ export const Courses = () => {
         'מעורבות ותמיכה של בן/בת הזוג',
         'הכנה ללידה וויזואליזציה',
         '3 מפגשים אישיים של 2.5 שעות כל אחד'
-      ]
+      ],
+      courseId: 'hypnobirthing'
     },
     {
       title: 'הדרכת הנקה',
@@ -45,12 +47,13 @@ export const Courses = () => {
         'אתגרים נפוצים ופתרונות',
         'הנחיות לשאיבה ואחסון',
         'ייעוץ אישי זמין'
-      ]
+      ],
+      courseId: 'breastfeeding'
     },
     {
       title: 'שפת התינוקות דנסטן',
-      description: 'מהי שפת התינוקות, זיהוי הצלילים, הבנת הצלילים, דרכים לביטוי, מענה מותאם לצרכים, עזרה בזיהוי הצרכים, והנחיות וייעוץ אישי זמין לאחר הקורס',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      description: 'הבנת צרכי התינוק באמצעות זיהוי הצלילים הטבעיים שלו',
+      image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       icon: <MessageCircle size={48} color="#D4A5A5" />,
       details: [
         'מהי שפת התינוקות',
@@ -60,11 +63,12 @@ export const Courses = () => {
         'מענה מותאם לצרכים',
         'עזרה בזיהוי הצרכים',
         'הנחיות וייעוץ אישי זמין לאחר הקורס'
-      ]
+      ],
+      courseId: 'dunstan'
     },
     {
       title: 'ייעוץ שינה בגישת דנסטן',
-      description: 'זיהוי הצורך, סימנים מקדימים לשינה, כלים ומעקב להבנת תבנית הירדמות, טכניקות להרדמה עם מעורבות הורית',
+      description: 'ייעוץ שינה בגישת דנסטן לשינה טובה יותר לכל המשפחה',
       image: 'https://images.unsplash.com/photo-1520206183501-b80df61043c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       icon: <Moon size={48} color="#D4A5A5" />,
       details: [
@@ -72,23 +76,25 @@ export const Courses = () => {
         'סימנים מקדימים לשינה',
         'כלים ומעקב להבנת תבנית הירדמות',
         'טכניקות להרדמה עם מעורבות הורית'
-      ]
+      ],
+      courseId: 'sleep'
     },
     {
       title: 'עיסוי תינוקות',
       description: 'טכניקות עיסוי לחיזוק הקשר עם התינוק ולהרגעתו',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       icon: <Users size={48} color="#D4A5A5" />,
       details: [
         '3 מפגשים של שעה וחצי כל אחד',
         'טכניקות עיסוי מעשיות',
         'חיזוק הקשר עם התינוק',
         'הרגעה וטיפוח'
-      ]
+      ],
+      courseId: 'massage'
     },
     {
       title: 'פרידה מהנקה',
-      description: 'זיהוי בשלות לפרידה, ביצוע פרידה בצורה אפקטיבית, אתגרים נפוצים בפרידה מהנקה, טכניקות לפרידה בצורה מכילה ותומכת',
+      description: 'ליווי מקצועי בתהליך הפרידה מההנקה בצורה הדרגתית ומכילה',
       image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       icon: <Sparkles size={48} color="#D4A5A5" />,
       details: [
@@ -96,7 +102,8 @@ export const Courses = () => {
         'ביצוע פרידה בצורה אפקטיבית',
         'אתגרים נפוצים בפרידה מהנקה',
         'טכניקות לפרידה בצורה מכילה ותומכת'
-      ]
+      ],
+      courseId: 'weaning'
     }
   ];
 
@@ -217,6 +224,8 @@ export const Courses = () => {
                   color="primary"
                   size="large"
                   fullWidth
+                  component={Link}
+                  to={`/pricing#${course.courseId}`}
                   sx={{ 
                     mt: 'auto',
                     borderRadius: '12px',
@@ -228,9 +237,8 @@ export const Courses = () => {
                       boxShadow: '0 6px 16px rgba(212, 165, 165, 0.4)'
                     }
                   }}
-                  href="/contact"
                 >
-                  {t('courses.enrollButton')}
+                  צפה במחיר
                 </Button>
               </CardContent>
             </Card>
