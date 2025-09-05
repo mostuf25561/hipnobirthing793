@@ -80,13 +80,7 @@ export const About = () => {
         </Grid>
       </Grid>
 
-      {/* Learning Journey */}
-      <Box sx={{ mt: 8, p: 4, backgroundColor: 'rgba(212, 165, 165, 0.04)', borderRadius: '16px' }}>
-        <DebugTooltip jsonPath="about_self.json > text (paragraph 7)">
-          <Typography variant="h6" color="text.primary" sx={{ mb: 3, textAlign: 'center', lineHeight: 1.6, fontWeight: 500, fontSize: '1.1rem' }}>
-          </Typography>
-        </DebugTooltip>
-      </Box>
+
 
       {/* Personal Info */}
       <Box sx={{ mt: 8 }}>
