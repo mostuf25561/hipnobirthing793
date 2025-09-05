@@ -1,8 +1,9 @@
 import React from 'react';
-import { Container, Typography, Box, Grid, Paper, IconButton, Card, CardContent, List, ListItem, ListItemText, Accordion, AccordionSummary, AccordionDetails, Stepper, Step, StepLabel, StepContent } from '@mui/material';
+import { Container, Typography, Box, Grid, Paper, IconButton, Card, CardContent, List, ListItem, ListItemText, Accordion, AccordionSummary, AccordionDetails, Stepper, Step, StepLabel, StepContent, Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { Award, GraduationCap, FileText, ChevronLeft, ChevronRight, Expand as ExpandMore } from 'lucide-react';
+import { Award, GraduationCap, FileText, ChevronLeft, ChevronRight, Expand as ExpandMore, ExternalLink } from 'lucide-react';
 import { DocumentsDesignNavigation } from '../components/Debug/DocumentsDesignNavigation';
+import { Link } from 'react-router-dom';
 
 export const Documents = () => {
   const { t, i18n } = useTranslation();
@@ -13,10 +14,21 @@ export const Documents = () => {
   const certifications = t('documents.certifications.items', { returnObjects: true });
   const achievements = t('documents.achievements.items', { returnObjects: true });
 
+  // Map certifications to course names for pricing page highlighting
+  const getCourseMapping = (certTitle: string) => {
+    if (certTitle.includes('היפנובירת')) return 'hypnobirthing';
+    if (certTitle.includes('הנקה')) return 'breastfeeding';
+    if (certTitle.includes('דנסטן') && certTitle.includes('שפת')) return 'dunstan';
+    if (certTitle.includes('שינה')) return 'sleep';
+    if (certTitle.includes('עיסוי')) return 'massage';
+    return '';
+  };
+
   const allDocuments = [
     ...certifications.map((cert: any, index: number) => ({
       ...cert,
       type: 'certification',
+      courseMapping: getCourseMapping(cert.title),
       icon: index === 0 ? <GraduationCap size={40} color="#D4A5A5" /> :
             index === 1 ? <Award size={40} color="#D4A5A5" /> :
                          <FileText size={40} color="#D4A5A5" />
@@ -24,6 +36,7 @@ export const Documents = () => {
     ...achievements.map((achievement: any) => ({
       ...achievement,
       type: 'achievement',
+      courseMapping: '',
       icon: <Award size={40} color="#E6B89C" />
     }))
   ];
@@ -92,6 +105,18 @@ export const Documents = () => {
               secondary={`${doc.organization || doc.description} • ${doc.year}`}
               primaryTypographyProps={{ fontWeight: 'bold' }}
             />
+            {doc.courseMapping && (
+              <Button
+                component={Link}
+                to={`/pricing#${doc.courseMapping}`}
+                variant="outlined"
+                size="small"
+                startIcon={<ExternalLink size={16} />}
+                sx={{ ml: 2 }}
+              >
+                צפה במחיר
+              </Button>
+            )}
           </Paper>
         </ListItem>
       ))}
@@ -116,6 +141,18 @@ export const Documents = () => {
               <Typography variant="caption">
                 {doc.year}
               </Typography>
+              {doc.courseMapping && (
+                <Button
+                  component={Link}
+                  to={`/pricing#${doc.courseMapping}`}
+                  variant="outlined"
+                  size="small"
+                  startIcon={<ExternalLink size={16} />}
+                  sx={{ mt: 2 }}
+                >
+                  צפה במחיר
+                </Button>
+              )}
             </CardContent>
           </Card>
         </Grid>
@@ -141,6 +178,18 @@ export const Documents = () => {
             <Typography variant="body2">
               {doc.year}
             </Typography>
+            {doc.courseMapping && (
+              <Button
+                component={Link}
+                to={`/pricing#${doc.courseMapping}`}
+                variant="outlined"
+                size="small"
+                startIcon={<ExternalLink size={16} />}
+                sx={{ mt: 1 }}
+              >
+                צפה במחיר
+              </Button>
+            )}
           </StepContent>
         </Step>
       ))}
@@ -157,6 +206,19 @@ export const Documents = () => {
               <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                 {doc.title}
               </Typography>
+              
+              {currentDoc.courseMapping && (
+                <Button
+                  component={Link}
+                  to={`/pricing#${currentDoc.courseMapping}`}
+                  variant="outlined"
+                  size="small"
+                  startIcon={<ExternalLink size={16} />}
+                  sx={{ mt: 2 }}
+                >
+                  צפה במחיר
+                </Button>
+              )}
             </Box>
           </AccordionSummary>
           <AccordionDetails>
@@ -166,6 +228,18 @@ export const Documents = () => {
             <Typography variant="body2">
               {doc.year}
             </Typography>
+            {doc.courseMapping && (
+              <Button
+                component={Link}
+                to={`/pricing#${doc.courseMapping}`}
+                variant="outlined"
+                size="small"
+                startIcon={<ExternalLink size={16} />}
+                sx={{ mt: 1 }}
+              >
+                צפה במחיר
+              </Button>
+            )}
           </AccordionDetails>
         </Accordion>
       ))}
@@ -199,6 +273,23 @@ export const Documents = () => {
                 <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
                   {cert.title}
                 </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                  {cert.organization}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                  {cert.year}
+                </Typography>
+                {getCourseMapping(cert.title) && (
+                  <Button
+                    component={Link}
+                    to={`/pricing#${getCourseMapping(cert.title)}`}
+                    variant="outlined"
+                    size="small"
+                    startIcon={<ExternalLink size={16} />}
+                  >
+                    צפה במחיר
+                  </Button>
+                )}
               </Paper>
             </Grid>
           ))}

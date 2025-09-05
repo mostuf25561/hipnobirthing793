@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Container, Typography, Box, Grid, Card, CardContent, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { Check, Heart, Baby, Users, Moon, Sparkles } from 'lucide-react';
@@ -7,9 +9,28 @@ import { DebugTooltip } from '../components/Debug/DebugTooltip';
 export const Pricing = () => {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === 'he';
+  const location = useLocation();
+
+  useEffect(() => {
+    // Handle highlighting specific course when coming from documents page
+    if (location.hash) {
+      const courseId = location.hash.substring(1);
+      const element = document.getElementById(courseId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        // Add temporary highlight effect
+        element.style.backgroundColor = 'rgba(212, 165, 165, 0.2)';
+        element.style.transition = 'background-color 0.3s ease';
+        setTimeout(() => {
+          element.style.backgroundColor = '';
+        }, 3000);
+      }
+    }
+  }, [location.hash]);
 
   const courses = [
     {
+      id: 'hypnobirthing',
       title: 'הכנה ללידה בשיטת היפנובירת\'ינג',
       duration: '2 שעות',
       sessions: '3 מפגשים',
@@ -18,6 +39,7 @@ export const Pricing = () => {
       icon: <Heart size={48} color="#D4A5A5" />
     },
     {
+      id: 'breastfeeding',
       title: 'הדרכת הנקה',
       duration: '1.5 שעות',
       sessions: '1 מפגש',
@@ -25,6 +47,7 @@ export const Pricing = () => {
       icon: <Baby size={48} color="#D4A5A5" />
     },
     {
+      id: 'dunstan',
       title: 'שפת התינוקות דנסטן',
       duration: '2 שעות',
       sessions: '2 מפגשים',
@@ -32,6 +55,7 @@ export const Pricing = () => {
       icon: <Baby size={48} color="#D4A5A5" />
     },
     {
+      id: 'sleep',
       title: 'יועצת שינה בגישת דנסטן',
       duration: '1.5 שעות',
       sessions: '1 מפגש',
@@ -39,6 +63,7 @@ export const Pricing = () => {
       icon: <Moon size={48} color="#D4A5A5" />
     },
     {
+      id: 'massage',
       title: 'עיסוי תינוקות',
       duration: '1.5 שעות',
       sessions: '3 מפגשים',
@@ -46,6 +71,7 @@ export const Pricing = () => {
       icon: <Users size={48} color="#D4A5A5" />
     },
     {
+      id: 'weaning',
       title: 'פרידה מהנקה',
       duration: '1.5 שעות',
       sessions: '1 מפגש',
@@ -96,7 +122,11 @@ export const Pricing = () => {
           </TableHead>
           <TableBody>
             {courses.map((course, index) => (
-              <TableRow key={index} sx={{ '&:hover': { backgroundColor: 'rgba(212, 165, 165, 0.05)' } }}>
+              <TableRow 
+                key={index} 
+                id={course.id}
+                sx={{ '&:hover': { backgroundColor: 'rgba(212, 165, 165, 0.05)' } }}
+              >
                 <TableCell sx={{ textAlign: isRTL ? 'right' : 'left', fontWeight: 'medium' }}>
                   {course.title}
                 </TableCell>
@@ -119,7 +149,7 @@ export const Pricing = () => {
       <Box sx={{ display: { xs: 'block', md: 'none' } }}>
         <Grid container spacing={3}>
           {courses.map((course, index) => (
-            <Grid item xs={12} key={index}>
+            <Grid item xs={12} key={index} id={course.id}>
               <Card elevation={3} sx={{ borderRadius: '16px' }}>
                 <CardContent sx={{ p: 3 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, gap: 2 }}>
