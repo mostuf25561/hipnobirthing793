@@ -10,7 +10,7 @@ export const heTranslations = {
   home: {
     welcome: 'ברוכות הבאות למסע שלכן',
     subtitle: 'לידה מנצחת - מרגע ההכנה עד החיבוק הראשון ואחריו, יד ביד איתך כל הדרך',
-    exploreButton: 'גלי את הקורסים שלנו',
+    exploreButton: 'גלי את הקורסים שלי',
     features: {
       hypnobirthing: {
         title: 'הכנה ללידה בשיטת היפנובירת\'ינג',
