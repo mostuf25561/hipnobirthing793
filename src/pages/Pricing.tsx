@@ -190,8 +190,7 @@ export const Pricing = () => {
           </Typography>
         </DebugTooltip>
         <Typography variant="body2" color="primary" sx={{ mt: 1, fontWeight: 'medium' }}>
-          קיים החזר מקופת החולים לקורס הכנה ללידה
-        </Typography>
+קיים החזר כספי מקופת החולים לקורס הכנה ללידה (עד 75%) ולקורס הדרכת הנקה        </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
           לפרטים נוספים ולתיאום מפגש, אנא צרו קשר
         </Typography>
